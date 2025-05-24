@@ -46,3 +46,7 @@ group :test do
   gem 'selenium-webdriver',       '4.8.3'
   gem 'webdrivers',               '5.2.0'
 end
+
+group :development do
+  gem 'letter_opener'
+end
