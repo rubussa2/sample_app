@@ -102,6 +102,17 @@ class User < ApplicationRecord
     following << other_user unless self == other_user
   end
 
+  # アカウントを有効にする
+  def activate
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+
+  # 有効化用のメールを送信する
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
   private
 
     # メールアドレスをすべて小文字にする
@@ -114,5 +125,5 @@ class User < ApplicationRecord
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
-  
+
 end
