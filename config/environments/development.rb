@@ -36,7 +36,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false]
+  config.action_mailer.raise_delivery_errors = false
   # クラウドIDEの場合は以下をお使いください
   host = 'https://urban-space-orbit-4j6v5wgjrprx2w-3000.app.github.dev'     # クラウドIDE
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }
